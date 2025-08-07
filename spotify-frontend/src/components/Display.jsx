@@ -14,11 +14,11 @@ const Display = () => {
   const location = useLocation();
   const isAlbum = location.pathname.includes("album");
   const albumId = isAlbum ? location.pathname.split('/').pop() : "";
-  const bgColor = isAlbum && albumsData.length > 0 ? albumsData.find((x) => (caches._id == albumId)).bgColor : "#121212";
+  const bgColour = isAlbum && albumsData.length > 0 ? albumsData.find((x) => (x._id == albumId)).bgColour : "#121212";
 
   useEffect(() => {
     if (isAlbum) {
-      displayRef.current.style.background = `linear-gradient(${bgColor},#121212)`
+      displayRef.current.style.background = `linear-gradient(${bgColour},#121212)`
     }
     else {
       displayRef.current.style.background = `#121212`

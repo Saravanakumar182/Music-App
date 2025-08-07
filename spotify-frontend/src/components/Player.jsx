@@ -1,5 +1,4 @@
 import React from 'react'
-import { songsData } from '../assets/frontend-assets/front-assets'
 import { assets } from '../assets/frontend-assets/front-assets' 
 import { useContext } from 'react'
 import {PlayerContext} from "../context/PlayerContext"

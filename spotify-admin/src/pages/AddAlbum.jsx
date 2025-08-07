@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
 import {assets} from '../assets/admin-assets.js' 
+import {toast} from 'react-toastify'
+import axios from'axios';
+import { url } from '../App';
+
+
 
 const AddAlbum = () => {
 
@@ -12,7 +17,9 @@ const AddAlbum = () => {
   const onSubmitHandler = async(e)=>{
     e.preventDefault();
     setLoading(true);
-    try {const formData = new FormData();
+
+    try {
+      const formData = new FormData();
       formData.append('image',image);
       formData.append('bgColour',colour);
       formData.append('name',name);
@@ -21,7 +28,7 @@ const AddAlbum = () => {
       const response = await axios.post(`${url}/api/album/add`,formData);
 
       if(response.data.success){
-        toast.success("Song Added");
+        toast.success("Album Added");
         setName("");
         setDesc("");
         setColour("#ffffff");

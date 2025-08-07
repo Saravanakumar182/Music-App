@@ -1,5 +1,8 @@
 import React,{useState,useEffect} from 'react'
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import axios from'axios';
+import { url } from '../App';
+
 
 const ListAlbum = () => {
   
@@ -15,6 +18,7 @@ const ListAlbum = () => {
 
       console.log(response.data);
     } catch (error) {
+      console.log(error);
       toast.error("Error occoured");
     }
   }

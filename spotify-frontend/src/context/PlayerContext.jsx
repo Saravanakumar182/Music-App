@@ -1,5 +1,4 @@
 import { createContext, useEffect, useRef, useState } from "react";
-import { songsData } from "../assets/frontend-assets/front-assets";
 import axios from 'axios'
 export const PlayerContext = createContext();
 
@@ -11,7 +10,7 @@ const PlayerContextProvider = (props) => {
     const seekBg = useRef();
     const seekBar = useRef();
 
-    const url = 'http://localhost:4000';
+    const url = 'http://localhost:8080';
 
     const [songsData,setSongsData]= useState([]);
     const [albumsData,setAlbumsData]=useState([]);
@@ -39,7 +38,7 @@ const PlayerContextProvider = (props) => {
         setPlayStatus(false)
     }
 
-    const playWithId = async(id)=>{
+    const playWithId = async (id)=>{
         await songsData.map((item)=>{
             if (id===item._id){
                 setTrack(item);
@@ -80,7 +79,7 @@ const PlayerContextProvider = (props) => {
             setSongsData(response.data.songs);
             setTrack(response.data.songs[0]);
         } catch (error) {
-            
+            console.log(error);
         }
     }
     const getAlbumsData= async()=>{
